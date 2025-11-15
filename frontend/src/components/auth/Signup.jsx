@@ -45,7 +45,8 @@ const Signup = () => {
 
         try {
             dispatch(setLoading(true));
-            const res = await axios.post(`http://localhost:3000/api/v1/user/register`, formData, {
+            const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3000";
+            const res = await axios.post(`${API_URL}/api/v1/user/register`, formData, {
                 headers: { 'Content-Type': "multipart/form-data" },
                 withCredentials: true,
             });
